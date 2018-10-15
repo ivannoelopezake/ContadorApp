@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="contadorapp" default="all">
+  
+  
+  <property file="contadorapp.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.gradle:_android.arch.core:common:1.1.1@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.core:runtime-1.1.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/48f78b19ee7f84461f4bd98eb4e84ab3/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/48f78b19ee7f84461f4bd98eb4e84ab3/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/e1b63d477e1ce3bd66ef97459cf686bc/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/e1b63d477e1ce3bd66ef97459cf686bc/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/26b26538c0e793c9da53d30e7a7248a8/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/26b26538c0e793c9da53d30e7a7248a8/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9d973c171fe2f86a0f8bbf2b3f0ba7e1/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9d973c171fe2f86a0f8bbf2b3f0ba7e1/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/2a37ca457e9cc254a7f7cc746c721218/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/2a37ca457e9cc254a7f7cc746c721218/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.constraint:constraint-layout-1.1.3.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/b2b32a288c10c346e0be602569b30e15/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/b2b32a288c10c346e0be602569b30e15/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.constraint:constraint-layout-solver:1.1.3@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.3/bde0667d7414c16ed62d3cfe993cff7f9d732373/constraint-layout-solver-1.1.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.test.espresso:espresso-core-3.0.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/espresso-core-3.0.2.aar/8a6f612966189271265c776fc62ae24c/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/espresso-core-3.0.2.aar/8a6f612966189271265c776fc62ae24c/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.test.espresso:espresso-idling-resource-3.0.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.0.2.aar/3381544ccd7c5ad665ff2201fa1388d7/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.0.2.aar/3381544ccd7c5ad665ff2201fa1388d7/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.test:monitor-1.0.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/monitor-1.0.2.aar/1482e88f86b63852d84d6075ab41388e/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/monitor-1.0.2.aar/1482e88f86b63852d84d6075ab41388e/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.test:runner-1.0.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/runner-1.0.2.aar/7a6dd440a422863fce3deed7f5e381c6/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/runner-1.0.2.aar/7a6dd440a422863fce3deed7f5e381c6/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/9fcb58f1b26534dfcc3e48a287e1f259/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/9fcb58f1b26534dfcc3e48a287e1f259/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/bbb17b2e0f38217e1e1dff6aa6b7d547/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/bbb17b2e0f38217e1e1dff6aa6b7d547/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/35e27df6226bf49a02c8bb6c2646fde0/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/35e27df6226bf49a02c8bb6c2646fde0/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:collections:28.0.0@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0/c1bcdade4d3cc2836130424a3f3e4182c666a745/collections-28.0.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/b8f53f6fcf2c95d33db3daf14623d0b6/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/b8f53f6fcf2c95d33db3daf14623d0b6/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/971ccd645564b166c3d5062d54eb4352/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/971ccd645564b166c3d5062d54eb4352/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:customview-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/e96b39ef418525f1fd51a542f000e506/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/e96b39ef418525f1fd51a542f000e506/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:documentfile-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/0ca02d9796418d259135fe3db3536957/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/0ca02d9796418d259135fe3db3536957/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/187126b109fd496c46e77dcdb0d55ee1/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/187126b109fd496c46e77dcdb0d55ee1/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:interpolator-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/05197c9a4d1dcdd3badcf62008dc0d78/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/05197c9a4d1dcdd3badcf62008dc0d78/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:loader-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/efb458c4195af61f7302aff491b90349/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/efb458c4195af61f7302aff491b90349/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/fcfe2eb51a05c659cd00c5cae04a2378/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/fcfe2eb51a05c659cd00c5cae04a2378/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:print-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/0b9be3e259ef5ba5bf279fb2edc39f39/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/0b9be3e259ef5ba5bf279fb2edc39f39/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/3b74b4d65bfe784a57edc22fb6b5ed9a/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/3b74b4d65bfe784a57edc22fb6b5ed9a/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0/ed73f5337a002d1fd24339d5fb08c2c9d9ca60d8/support-annotations-28.0.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-compat-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/d7affd9bb3c05ac7a7d1d70cc9e6d13f/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/d7affd9bb3c05ac7a7d1d70cc9e6d13f/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/05f1bd5f45c46b1d7c5ea64d113479e4/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/05f1bd5f45c46b1d7c5ea64d113479e4/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/b46af6eb43b6376a5b509a4252f133a3/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/b46af6eb43b6376a5b509a4252f133a3/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-fragment-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6c4123ede6fee3d9cc51ee1eea96ed80/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6c4123ede6fee3d9cc51ee1eea96ed80/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/f796aa87454d16c8f582436efae2acec/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/f796aa87454d16c8f582436efae2acec/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/1b3cc2647e1ae9a88d3a6b8d4e665601/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/1b3cc2647e1ae9a88d3a6b8d4e665601/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/808b430b1f11c35aeb25e1c3de432deb/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/808b430b1f11c35aeb25e1c3de432deb/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:viewpager-28.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/3d7f7e825240ddd9d26dbbdfa6548666/res"/>
+    <pathelement location="${basedir}/../../.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/3d7f7e825240ddd9d26dbbdfa6548666/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.code.findbugs:jsr305:2.0.1@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup:javawriter:2.1.1@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_javax.inject:javax.inject:1@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_junit:junit:4.12@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.gradle:_net.sf.kxml:kxml2:2.3.0@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/net.sf.kxml/kxml2/2.3.0/ccbc77a5fd907ef863c29f3596c6f54ffa4e9442/kxml2-2.3.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.hamcrest:hamcrest-core:1.3@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.hamcrest:hamcrest-integration:1.3@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.hamcrest:hamcrest-library:1.3@jar.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/app/module_app.xml"/>
+  
+  <import file="${basedir}/module_contadorapp.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.app, clean.module.contadorapp" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.app, compile.module.contadorapp" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
